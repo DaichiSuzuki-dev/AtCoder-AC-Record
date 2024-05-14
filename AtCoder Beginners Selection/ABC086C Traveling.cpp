@@ -22,16 +22,11 @@ int main()
 
     int move = x + y;
 
-    bool result1 = (move % t) == 0;
-    bool result2 = ((t - move) % 2) == 0;
-
-    bool hoge = (t - move >= 0);
-    bool fuga = (result1 || result2);
-    if (!(hoge && fuga))
+    if (move > t || (t - move) % 2 != 0)
     {
       can = false;
       break;
     }
   }
-  cout << (can ? "YES" : "NO") << endl;
+  cout << (can ? "Yes" : "No") << endl;
 }
