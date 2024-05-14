@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -6,26 +7,25 @@ int main()
   int N;
   cin >> N;
 
-  int T = 0;
-  int X = 0;
-  int Y = 0;
+  vector<int> T(N + 1);
+  vector<int> X(N + 1);
+  vector<int> Y(N + 1);
 
   bool can = true;
-  for (int i = 0; i < N; i++)
+  for (int i = 1; i < N + 1; i++)
   {
-    int t, x, y;
-    cin >> t >> x >> y;
+    cin >> T[i] >> X[i] >> Y[i];
 
-    T = t - T;
-    X = abs(x - X);
-    Y = abs(y - Y);
+    int t = T[i] - T[i - 1];
+    int x = abs(X[i] - X[i - 1]);
+    int y = abs(Y[i] - Y[i - 1]);
 
-    int move = X + Y;
+    int move = x + y;
 
-    bool result1 = (move % T) == 0;
-    bool result2 = ((T - move) % 2) == 0;
+    bool result1 = (move % t) == 0;
+    bool result2 = ((t - move) % 2) == 0;
 
-    bool hoge = (T - move >= 0);
+    bool hoge = (t - move >= 0);
     bool fuga = (result1 || result2);
     if (!(hoge && fuga))
     {
