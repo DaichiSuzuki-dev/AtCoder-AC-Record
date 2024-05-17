@@ -22,5 +22,6 @@ int main()
       break;
     }
   }
+
   cout << max << endl;
 }
