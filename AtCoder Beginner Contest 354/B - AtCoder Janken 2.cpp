@@ -3,23 +3,17 @@ using namespace std;
 
 int main()
 {
-  int N;
+  int N, C;
   cin >> N;
 
-  vector<string> S(N);
-  vector<int> C(N);
-  for (int i = 0; i < N; i++)
-    cin >> S[i] >> C[i];
-
-  sort(S.begin(), S.end());
-
-  int mod = accumulate(C.begin(), C.end(), 0) % N;
+  string S[N];
+  int res = 0;
   for (int i = 0; i < N; i++)
   {
-    if (i == mod)
-    {
-      cout << S[i] << endl;
-      break;
-    }
+    cin >> S[i] >> C;
+    res += C;
   }
+
+  sort(S, S + N);
+  cout << (S[res % N]);
 }
